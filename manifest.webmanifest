@@ -1,0 +1,9 @@
+{
+  "name": "RM Task Manager Pro",
+  "short_name": "RM Tasks",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "background_color": "#f3f6fb",
+  "theme_color": "#2563eb",
+  "icons": []
+}
