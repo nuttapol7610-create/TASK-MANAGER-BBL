@@ -1,3 +1,5 @@
+// Firebase Config for task-manager-c3ab5
+// ใช้กับ RM Task Manager Pro - Shared Team Mode
 export const firebaseConfig = {
   apiKey: "AIzaSyDI3vFkce2cRLBYC0isE1Yj_t3rV4YSYWw",
   authDomain: "task-manager-c3ab5.firebaseapp.com",

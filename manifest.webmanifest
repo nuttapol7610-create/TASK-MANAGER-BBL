@@ -1,6 +1,6 @@
 {
-  "name": "RM Task Manager Pro",
-  "short_name": "RM Tasks",
+  "name": "RM Task Manager Shared Team",
+  "short_name": "RM Team Tasks",
   "start_url": "./index.html",
   "display": "standalone",
   "background_color": "#f3f6fb",
