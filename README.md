@@ -1,38 +1,24 @@
-# RM Task Manager Pro - Shared Team Mode
+# RM Task Manager Pro - Shared Team Mode v2
 
-เวอร์ชันนี้เปลี่ยน Firestore จาก Single User Mode เป็น Shared Team Mode แล้ว
+เวอร์ชันนี้ปรับตามคำขอล่าสุด:
 
-## โครงสร้าง Firestore ใหม่
+1. KPI "กำลังดำเนินการ" นับเฉพาะสถานะ `In Progress` เท่านั้น ไม่รวม `Open`
+2. Dashboard Eisenhower Matrix แสดงแบบย่อ 1 งานต่อ 1 บรรทัด โดยแสดง:
+   - วันที่รับงาน
+   - ชื่องาน
+   - ชื่อลูกค้า
+   - วัน Due
+3. ยังเป็น Shared Team Mode เหมือนเดิม ใช้ Firestore path:
+   `teams/bbl-team/tasks/{taskId}`
 
-เดิม:
-`users/{userId}/tasks/{taskId}`
-
-ใหม่:
-`teams/bbl-team/tasks/{taskId}`
-
-ผลลัพธ์คือ ผู้ใช้ 2 คนหรือมากกว่าที่ Login Google และเปิดลิงก์เดียวกัน จะเห็นงานชุดเดียวกัน และเมื่อคนหนึ่งแก้ไข อีกคนจะเห็น Update แบบ Real-time
-
-## ไฟล์ในชุดนี้
-
-- `index.html`
-- `firebase-config.js`
-- `manifest.webmanifest`
-- `service-worker.js`
-- `firestore-rules-shared-team.txt`
-- `README.md`
-
-## วิธีนำไปใช้
+## วิธีใช้งาน
 
 1. แตก ZIP
 2. Upload ไฟล์ทั้งหมดขึ้น GitHub ทับไฟล์เดิม
 3. Commit Changes
-4. ไป Firebase > Firestore Database > Rules
-5. วาง Rules จากไฟล์ `firestore-rules-shared-team.txt`
-6. กด Publish
-7. เปิดหน้าเว็บ แล้วให้ผู้ใช้แต่ละคน Login Google ด้วย Email ของตัวเอง
+4. หากเคยตั้ง Firestore Rules แบบ Shared Team แล้ว ไม่ต้องเปลี่ยน Rules ใหม่
+5. เปิด GitHub Pages แล้วกด Ctrl + F5 เพื่อ Refresh Cache
 
-## หมายเหตุด้านความปลอดภัย
+## Firestore Rules
 
-Rules ชุดนี้อนุญาตให้ผู้ใช้ที่ Login Google แล้วทุกคนที่เข้าถึงเว็บได้ อ่าน/เขียนงานทีมเดียวกันได้ เหมาะสำหรับทีมเล็กที่แชร์ลิงก์เฉพาะภายใน
-
-ถ้าต้องการจำกัดเฉพาะ Email 2 คน ให้แจ้ง Email ที่ต้องการ ผมสามารถทำ Rules แบบ Whitelist ให้ได้
+ใช้ไฟล์ `firestore-rules-shared-team.txt` หากต้องตั้ง Rules ใหม่
